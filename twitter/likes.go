@@ -1,18 +1,22 @@
 package twitter
 
 import (
-	"io"
+	"encoding/json"
+	"io/ioutil"
 	"net/http"
-	"os"
 )
 
-func GetLikes(tclient *http.Client, tweetID string) (err error) {
+func GetLikes(tclient *http.Client, tweetID string) (res Response, err error) {
 	url := "https://api.twitter.com/2/tweets/" + tweetID + "/liking_users"
 	likes, err := tclient.Get(url)
 	if err != nil {
-		panic(err)
+		return
 	}
-	io.Copy(os.Stdout, likes.Body)
+	defer likes.Body.Close()
 
-	return nil
+	byteValue, _ := ioutil.ReadAll(likes.Body)
+	var response Response
+	json.Unmarshal(byteValue, &response)
+
+	return response, nil
 }

@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "id": "1347396338581790723",
+      "name": "Amanda",
+      "username": "CoderRetweet"
+    },
+    {
+      "id": "955443550048608257",
+      "name": "NanoBot",
+      "username": "morolswediu"
+    },
+    {
+      "id": "842956176958476289",
+      "name": "CodersNotes",
+      "username": "CoderNotesBot"
+    },
+    { "id": "1127829883013361665", "name": "xael bot", "username": "xaelbot" },
+    {
+      "id": "1274628718913155075",
+      "name": "Camila Clement Bot",
+      "username": "cameliaclement"
+    },
+    {
+      "id": "1397984630385647621",
+      "name": "iamaBOT",
+      "username": "iamaBOT53933004"
+    },
+    {
+      "id": "1251909062222020609",
+      "name": "Very Proud Robot",
+      "username": "RobotProud"
+    },
+    { "id": "1382032616824651777", "name": "Fun Bot", "username": "_FunBot" },
+    {
+      "id": "1250164632968298497",
+      "name": "The Developer Bot",
+      "username": "TheDeveloperBot"
+    },
+    {
+      "id": "1000814755664150528",
+      "name": "\uD83E\uDD16 #100DaysOfCode",
+      "username": "100xcode"
+    }
+  ],
+  "meta": { "result_count": 10 }
+}

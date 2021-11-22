@@ -3,7 +3,6 @@ package twitter
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -31,7 +30,6 @@ func GetClient(apiKey string, apiSecretKey string) *http.Client {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(token)
 
 	conf := &oauth2.Config{}
 	tclient := conf.Client(context.Background(), &token)

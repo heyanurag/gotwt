@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"gotwt/twitter"
 	"gotwt/util"
 	"log"
@@ -14,13 +15,15 @@ func main() {
 
 	tclient := twitter.GetClient(config.ApiKey, config.ApiKeySecret)
 
-	errs1 := twitter.GetRetweets(tclient, "1407778348441296899")
+	retweeters, errs1 := twitter.GetRetweets(tclient, "1407778348441296899")
 	if errs1 != nil {
 		panic(errs1)
 	}
+	fmt.Println(retweeters)
 
-	errs2 := twitter.GetLikes(tclient, "1407778348441296899")
+	liking_users, errs2 := twitter.GetLikes(tclient, "1407778348441296899")
 	if errs2 != nil {
 		panic(errs2)
 	}
+	fmt.Println(liking_users)
 }
