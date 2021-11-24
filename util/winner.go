@@ -48,7 +48,7 @@ func GetWinners(tweetid string, noOfWinners int, fromRetweets bool, fromLikes bo
 func pickWinners(pool []twitter.User, noOfWinners int) []twitter.User {
 
 	if noOfWinners > len(pool) {
-		fmt.Printf("\nOops! Cannot pick %d out of %d participants😕\n\n", noOfWinners, len(pool))
+		fmt.Printf("\nOops! Cannot pick %d winners out of %d participants😕\n\n", noOfWinners, len(pool))
 		os.Exit(1)
 	}
 
