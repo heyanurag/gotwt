@@ -5,6 +5,7 @@ import (
 	"gotwt/twitter"
 	"log"
 	"math/rand"
+	"os"
 	"time"
 )
 
@@ -19,13 +20,11 @@ func GetWinners(tweetid string, noOfWinners int, fromRetweets bool, fromLikes bo
 	if errs1 != nil {
 		panic(errs1)
 	}
-	// fmt.Println(retweeters)
 
 	liking_users, errs2 := twitter.GetLikes(tclient, tweetid)
 	if errs2 != nil {
 		panic(errs2)
 	}
-	// fmt.Println(liking_users)
 
 	var winners []twitter.User
 
@@ -41,11 +40,18 @@ func GetWinners(tweetid string, noOfWinners int, fromRetweets bool, fromLikes bo
 	for i := 0; i < len(winners); i++ {
 		fmt.Printf("%d. %s  (@%s)\n", i+1, winners[i].Name, winners[i].Username)
 	}
+
 	fmt.Println("\nCongratulations to all the winner(s)!🎉")
 
 }
 
 func pickWinners(pool []twitter.User, noOfWinners int) []twitter.User {
+
+	if noOfWinners > len(pool) {
+		fmt.Printf("\nOops! Cannot pick %d out of %d participants😕\n\n", noOfWinners, len(pool))
+		os.Exit(1)
+	}
+
 	fmt.Printf("\nPicking winners from a pool of %d participants!🌈\n\n", len(pool))
 
 	saveToExcel(pool)

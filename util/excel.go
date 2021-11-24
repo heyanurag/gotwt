@@ -22,6 +22,7 @@ func saveToExcel(pool []twitter.User) {
 
 	// Set active sheet of the workbook.
 	file.SetActiveSheet(index)
+
 	// Save spreadsheet by the given path.
 	if err := file.SaveAs("excel/logFile.xlsx"); err != nil {
 		fmt.Println(err)
