@@ -48,6 +48,8 @@ func GetWinners(tweetid string, noOfWinners int, fromRetweets bool, fromLikes bo
 func pickWinners(pool []twitter.User, noOfWinners int) []twitter.User {
 	fmt.Printf("\nPicking winners from a pool of %d participants!🌈\n\n", len(pool))
 
+	saveToExcel(pool)
+
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	perm := r.Perm(len(pool))
 

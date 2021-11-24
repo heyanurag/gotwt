@@ -14,7 +14,7 @@
 .glide/
 
 tmp/*
-.keys.json
 
 app.env
 gotwt
+excel/*.xlsx
