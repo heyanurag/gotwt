@@ -38,12 +38,16 @@ func GetWinners(tweetid string, noOfWinners int, fromRetweets bool, fromLikes bo
 		winners = pickWinners(retweeters.Data, noOfWinners)
 	}
 
-	fmt.Println(winners)
+	for i := 0; i < len(winners); i++ {
+		fmt.Printf("%d. %s  (@%s)\n", i+1, winners[i].Name, winners[i].Username)
+	}
+	fmt.Println("\nCongratulations to all the winner(s)!🎉")
 
 }
 
 func pickWinners(pool []twitter.User, noOfWinners int) []twitter.User {
-	fmt.Println(len(pool))
+	fmt.Printf("\nPicking winners from a pool of %d participants!🌈\n\n", len(pool))
+
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	perm := r.Perm(len(pool))
 
@@ -53,5 +57,6 @@ func pickWinners(pool []twitter.User, noOfWinners int) []twitter.User {
 	for _, idx := range winners {
 		ret = append(ret, pool[idx])
 	}
+
 	return ret
 }
